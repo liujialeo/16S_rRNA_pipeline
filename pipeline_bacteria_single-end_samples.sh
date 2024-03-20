@@ -1,9 +1,9 @@
 [TOC]
 
 #!/bin/bash
-    # 作者 Authors: Yong-Xin Liu, Tong Chen, Xin Zhou, Tao Wen, Liang Chen, ...
+    # 作者 Authors: Jia Liu
     # 版本 Version: v1.70
-    # 更新 Update: 2020-01-03
+    # 更新 Update: 2024-03-20
 
     # 设置软件/数据库(database,db)和工作目录(work directory,wd)并进入wd
     # **每次打开Rstudio必须运行下面3行**
@@ -99,6 +99,9 @@
 #       --fastqout temp/${i}.merged.fq --relabel ${i}.
 #     done &
 #     
+##如果测序文件是fasta，用以下命令改为fastq
+#     for fasta_file in /g/bioinformation/06_others/liuxiaojing2/lxj_data/2nd/seq/*.fasta; do awk 'BEGIN {FS="\n"; RS=">"; OFS="\n"; ORS=""} {if ($1) {print "@"$1"\n"$2"\n+\n"gensub(".", "I", "g", $2)"\n"}}' "$fasta_file" > "/g/bioinformation/06_others/liuxiaojing2/lxj_data/2nd/seq/$(basename "${fasta_file%.fasta}.fastq")"; done
+
     time for i in `tail -n+2 result/metadata.tsv | cut -f 1`;do
       ${db}/win/usearch -fastx_relabel seq/${i}.fastq -fastqout temp/${i}.merged.fastq -prefix ${i} \
       --fastqout temp/${i}.merged.fq --relabel ${i}.
