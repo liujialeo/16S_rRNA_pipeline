@@ -1,9 +1,9 @@
 [TOC]
 
 #!/bin/bash
-    # 作者 Authors: Yong-Xin Liu, Tong Chen, Xin Zhou, Tao Wen, Liang Chen, ...
+    # 作者 Authors: Jia Liu
     # 版本 Version: v1.70
-    # 更新 Update: 2020-01-03
+    # 更新 Update: 2024-03-20
 
     # 设置软件/数据库(database,db)和工作目录(work directory,wd)并进入wd
     # **每次打开Rstudio必须运行下面3行**
